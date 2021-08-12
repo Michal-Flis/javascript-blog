@@ -52,7 +52,11 @@
   }
   console.log(clearMessages)
   /* for each article */
+  const articles = document.querySelectorAll(optArticleSelector);
 
+  for(let article of articles){
+    const articleId = article.getAttribute('id');
+  }
     /* get the article id */
 
     /* find the title element */
