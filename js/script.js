@@ -84,6 +84,7 @@ console.log('Link was clicked!');
 
       /* find tags wrapper */
   const tagsWrapper = article.querySelector(optArticleTagsSelector).innerHTML = '';
+  console.log(tagsWrapper);
       /* make html variable with empty string */
   let html = '';
       /* get tags from data-tags attribute */
@@ -95,31 +96,31 @@ console.log('Link was clicked!');
       /* START LOOP: for each tag */
   for(let tag of articleTagsArray){
         /* generate HTML of the link */
-        const linkHTMLtag = '<li><a href="#' + tag + '"><span>' + articleTagsArray + '</span></a></li>';
+  const linkHTMLtag = '<li><a href="#' + tag + '"><span>' + articleTagsArray + '</span></a></li>';
         /* add generated code to html variable */
   html = html + linkHTMLtag
   }
       /* END LOOP: for each tag */
   }
       /* insert HTML of all the links into the tags wrapper */
-  tagsWrapper.innerHTML = html
+  tagsWrapper.innerHTML = html;
     /* END LOOP: for every article: */
   }
   
-  generateTags();
+ generateTags();
 
 
   function tagClickHandler(event){
     /* prevent default action for this event */
-  
+  event.preventDefault();
     /* make new constant named "clickedElement" and give it the value of "this" */
-  
+  const clickedElement = this;
     /* make a new constant "href" and read the attribute "href" of the clicked element */
-  
+  const href = clickedElement.getAttribute('href');
     /* make a new constant "tag" and extract tag from the "href" constant */
-  
+  const tag = href.replace('#tag-','');
     /* find all tag links with class active */
-  
+  const tagLinks = document.querySelectorAll('a.active[href^="#tag-"]')
     /* START LOOP: for each active tag link */
   
       /* remove class active */
