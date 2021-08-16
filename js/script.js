@@ -42,8 +42,8 @@ console.log('Link was clicked!');
   function generateTitleLinks(customSelector = ''){
 
   
-    const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
-    console.log(titleList);
+    const titleList = document.querySelector(optTitleListSelector);
+    titleList.innerHTML = '';
     function clearMessages(){
       document.getElementById('messages').innerHTML = '';
     }
@@ -84,7 +84,7 @@ console.log('Link was clicked!');
   for (let article of articles){
 
       /* find tags wrapper */
-  const tagsWrapper = article.querySelector(optArticleTagsSelector).innerHTML = '';
+  const tagsWrapper = article.querySelector(optArticleTagsSelector);
   console.log(tagsWrapper);
       /* make html variable with empty string */
   let html = '';
