@@ -1,10 +1,10 @@
 'use strict';
 const templates = {
   articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
-  tagLink: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
-  authorLink: Handlebars.compile(document.querySelector('#template-author-article').innerHTML),
+  tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+  authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
-  authorListLink: Handlebars.compile(document.querySelector('#template-author-cloud-link').innerHTML),
+  authorListLink: Handlebars.compile(document.querySelector('#template-authors-list').innerHTML),
 };
 
 {
@@ -154,7 +154,7 @@ const templates = {
 
         /* generate HTML of the link */
         //let tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
-        const linkHTMLData = {tagId: tag, tagTitle: tag};
+        const linkHTMLData = {id: tag};
         const tagHTML = templates.tagLink(linkHTMLData);
 
         /* add generated code to html variable */
@@ -297,7 +297,7 @@ const templates = {
 
       /* Generate html link code for author */
       //const authorHTML = '<a href="#author-' + author +'"> ' + author + '</a>';
-      const linkHTMLData = {authorId: author, author: author};
+      const linkHTMLData = {id: author};
       const authorHTML = templates.authorLink(linkHTMLData);
 
       /* Check if author is not already in allAuthors */
